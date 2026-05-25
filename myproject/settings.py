@@ -11,14 +11,14 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-from pathlib import Path
+import os
+import environ
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import os
-import environ
 
 env = environ.Env()
 
@@ -34,7 +34,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://webisite-qxtd.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -50,16 +50,17 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
-
 ROOT_URLCONF = 'myproject.urls'
 
 TEMPLATES = [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-import dj_database_url
+
 DATABASE_URL = env('DATABASE_URL')
 DATABASES = {
     'default': dj_database_url.parse(DATABASE_URL)
@@ -127,5 +128,13 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files
+STORAGES = {
+"staticfiles": {
+"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+},
+}
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
