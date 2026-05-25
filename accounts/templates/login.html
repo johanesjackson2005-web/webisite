@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div class='login-Box'>
+<form  method="POST" >
+    {% csrf_token %}
+    
+    <label for="login">ACCOUNT</label><br><br>
+    <div class='input-Box'>
+    <input type="text" name="username" placeholder="Username" required><br><br>
+    <input type="password" name="password" placeholder="Password" required >
+    </div>
+    <br><br><br>
+    <button type="submit">Login</button>
+    <button style="background-color: green; color: white; font-size: 20px;
+          padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            <a href="/register/" style="color: white; text-decoration: none;">Register</a>
+              </button>
+    </div>  
+    <style>
+
+         body {
+     background-image: url("{% static 'image/pic2.jpg' %}");
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+            align-items: center;
+           min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+    .login-Box{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: transparent;
+             border: 20px ;
+            border: 20px ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+                border: 10px solid #cef5f3;
+        }
+        
+    
+        label {
+            font-size: 30px;
+            font-family: Arial, sans-serif;
+            color: black;
+            background-color:transparent;
+        }
+        button {
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        placeholder {
+            color: black;
+        }
+        button:hover {
+            background-color: darkblue;
+        }
+        .input-Box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+           
+          </form>
+
+         </body>
+</html>
