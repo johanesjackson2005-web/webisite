@@ -7,3 +7,8 @@ class RegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password']
+
+class ContactForm(forms.Form):
+    username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Name'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'your@email.com'}))
+    message = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Your message', 'rows': 5}))

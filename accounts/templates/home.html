@@ -1,41 +1,65 @@
 {% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body{
+              background-image: url("{% static 'image/pic1.jpg' %}");
+                background-size: cover;
+                margin: 0;
+                padding: 20px;
+        }
+        .button{
+            background-color: transparent;
+            color: green;
+        }
+        button:hover{
+            background: blue;
+        }
+        p{
+            font-size: 40px;
+            color: white;
+        }
+        h2{
+            text-align: center;
+            color: white;
+        }
+        button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: blue;
+            border-color: blue;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
 <body>
     <h2>Home Page</h2>
     
-{% if user.is_authenticated %}
-<p>Welcome {{ user.username }}</p>
- <button style="background-color: red; color: white; font-size: 20px;
-          padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-            <a href="/logout/" style="color: white; text-decoration: none;">Logout</a>
-              </button>
-            <button style='background-color:transparent;'> <a href="/About/" style="color: white;"> About<a/> </button>
-    <button style='background-color:transparent;'> <a href="/contactus/" style="color: white;"> contact us<a/> </button>
- 
-    </div>   
-{% else %}
-   <div class='button'>
-          <button style='background-color: transparent; color: white;'> <a href="/login/" style='color: white'>Login</a></button> 
-           <button style='background-color: transparent;'><a href="/register/"  style='color: white'>Register</a></button>
-           <button style='background-color:transparent;'>  <a href="/password-reset/" style='color: white;'>Reset Password</a></button>
-    </div>   
-{% endif %}
+    {% if user.is_authenticated %}
+    <p>Welcome {{ user.username }}</p>
+    <div class='button'>
+        <button><a href="/logout/">Logout</a></button>
+        <button><a href="/about/">About</a></button>
+        <button><a href="/contactus/">Contact Us</a></button>
+    </div>
+    {% else %}
+    <div class='button'>
+        <button><a href="/login/">Login</a></button>
+        <button><a href="/register/">Register</a></button>
+    </div>
+    {% endif %}
 </body>
-<style>
-body{
-      background-image: url("{% static 'image/pic1.jpg' %}");
-        background-size: cover;
-}
-.button{
-    background-color: transparent;
-    color: green;
-}
-button-hover{
-    background: blue;
-}
-p{
-    font-size: 40px;
-    color: white;
-}
-h2{
-    text-allign: center;
-}
+</html>

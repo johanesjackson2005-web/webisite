@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <style>
+        body {
+            background-image: url("{% static 'image/pic1.jpg' %}");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #3be9e0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #3be9e0;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .button {
+            text-align: center;
+            margin-top: 30px;
+        }
+        button {
+            background-color: #3be9e0;
+            color: black;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        button:hover {
+            background-color: #2aa89f;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <h1>About Us</h1>
+        <p>
+            Welcome to our website! We are dedicated to providing the best services and experiences to our users.
+            Our team is committed to innovation, quality, and customer satisfaction.
+        </p>
+        <p>
+            We believe in creating meaningful connections and delivering value through our products and services.
+            Thank you for being part of our journey!
+        </p>
+        <div class="button">
+            <button><a href="/">Home</a></button>
+            <button><a href="/contactus/">Contact Us</a></button>
+        </div>
+    </div>
+</body>
+</html>
