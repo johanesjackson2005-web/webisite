@@ -32,7 +32,7 @@ SECRET_KEY ='django-insecure-+l8@5s9#z!$%0v1j6n2u7w3e4r5t6y8a9b0c1d2e3f4g5h6i7j8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://webisite-qxtd.onrender.com', 'webisite-qxtd.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
